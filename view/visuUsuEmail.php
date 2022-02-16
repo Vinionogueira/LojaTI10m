@@ -13,10 +13,10 @@ include_once("../model/usuarioModel.php");
 
 <form action="#" method="Post"class="row row-cols-lg-auto g-3 align-items-center">
   <div class="col-12">
-    <label class="visually-hidden" for="inlineFormInputGroupUsername">Nome do Usuário</label>
+    <label class="visually-hidden" for="inlineFormInputGroupUsername">Email do Usuário</label>
     <div class="input-group">
       <div class="input-group-text">@</div>
-      <input type="text" name="nomeUsu" class="form-control" id="inlineFormInputGroupUsername" placeholder="Nome do usuario">
+      <input type="text" name="nomeUsu" class="form-control" id="inlineFormInputGroupUsername" placeholder="Email do usuario">
     </div>
   </div>
   
@@ -37,9 +37,9 @@ include_once("../model/usuarioModel.php");
   </thead>
   <tbody>
   <?php
-$nomeusu = isset ($_POST["nomeUsu"])? $_POST["nomeUsu"] : "";
+$nomeusu = isset ($_POST["emailUsu"])? $_POST["emailUsu"] : "";
 
-$dado = visuUsuarioNome ($conn,$nomeusu);
+$dado = visuUsuarioNome ($conn,$emailusu);
 
 foreach($dado as $nomeUsuarios):
 ?>

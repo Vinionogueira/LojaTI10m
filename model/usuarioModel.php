@@ -13,10 +13,23 @@ return $dados;
 }
 
 function visuUsuarioNome ($conn,$nomeusu){
-    $query = "select * from tbusuario where nomeusu like '{$nomeusu} ";
+    $query = "select * from tbusuario where nomeusu like '%{$nomeusu}%' ";
     $resultado = mysqli_query($conn, $query);
     return $resultado;
 
 }
 
+function visuUsuarioEmail($conn,$emailusu){
+    $query = "select * from tbusuario where emailusu like '%{$emailusu}%";
+$resultado = mysqli_query($conn,$query);
+return $resultado;
+}
+
+function visuUsuarioNCodigo ($conn,$codigousu){
+    $query = "select * from tbusuario where idusu =
+     '%{$codigousu}%' ";
+    $resultado = mysqli_query($conn, $query);
+    $resultado = mysqli_fetch_array($resultado);
+    return $resultado;
+}
 ?>
