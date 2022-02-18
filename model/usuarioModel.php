@@ -25,7 +25,7 @@ $resultado = mysqli_query($conn,$query);
 return $resultado;
 }
 
-function visuUsuarioNCodigo ($conn,$codigousu){
+function visuUsuarioCodigo ($conn,$codigousu){
     $query = "select * from tbusuario where idusu =
      '%{$codigousu}%' ";
     $resultado = mysqli_query($conn, $query);

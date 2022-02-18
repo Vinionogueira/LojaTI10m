@@ -2,7 +2,7 @@
 
 include_once("../view/header.php");
 include_once("../model/conexao.php");
-include_once("../model/usuarioModel.php");
+include_once("../model/cadastroModel.php");
 
 ?>
 
@@ -11,10 +11,10 @@ include_once("../model/usuarioModel.php");
 
 <form action="#" method="Post" class="row row-cols-lg-auto g-3 align-items-center">
   <div class="col-12">
-    <label class="visually-hidden" for="inlineFormInputGroupUsername">Nome do usuario</label>
+    <label class="visually-hidden" for="inlineFormInputGroupUsername">Valor do jogo</label>
     <div class="input-group">
-      <div class="input-group-text">Email</div>
-      <input type="text" name="emailUsu" class="form-control" id="inlineFormInputGroupUsername" placeholder="E-mail do usuario">
+      <div class="input-group-text">Valor</div>
+      <input type="text" name="valorjog" class="form-control" id="inlineFormInputGroupUsername" placeholder="Valor do jogo">
     </div>
   </div>
 
@@ -30,26 +30,26 @@ include_once("../model/usuarioModel.php");
     <tr>
       <th scope="col">codigo</th>
       <th scope="col">Nome</th>
-      <th scope="col">Email</th>
-      <th scope="col">Fone</th>
+      <th scope="col">Valor</th>
+      <th scope="col">Genero</th>
     </tr>
   </thead>
   <tbody>
   <?php
-$emailusu = isset ($_POST["emailUsu"])? $_POST["emailUsu"]:"" ;
+$valorjog = isset ($_POST["valorjog"])? $_POST["valorjog"]:"" ;
 
 if($emailusu){
 
 
-$dado = visuUsuarioEmail($conn, $emailusu);
+$dado = visuCadastroValor($conn, $valorjog);
 
 foreach($dado as $emailUsuarios): 
 ?>
     <tr>
-      <th scope="row"><?=$emailUsuarios["idusu"] ?></th>
-      <td><?=$emailUsuarios["nomeusu"] ?></td>
-      <td><?=$emailUsuarios["emailusu"] ?></td>
-      <td><?=$emailUsuarios["foneusu"] ?></td>
+      <th scope="row"><?=$emailUsuarios["idjog"] ?></th>
+      <td><?=$emailUsuarios["nomejog"] ?></td>
+      <td><?=$emailUsuarios["valorjog"] ?></td>
+      <td><?=$emailUsuarios["genjog"] ?></td>
     </tr>
     <?php
       endforeach;
